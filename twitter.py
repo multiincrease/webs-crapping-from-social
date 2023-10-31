@@ -10,6 +10,7 @@ def construct_twitter_url_from_handle(handle):
     """Converts a Twitter handle to its corresponding URL."""
     base_twitter_url = "https://twitter.com/"
     return base_twitter_url + handle
+
 def extract_information_from_twitter(url):
     options = webdriver.ChromeOptions()
     options.add_argument("--headless")
@@ -39,6 +40,7 @@ def extract_information_from_twitter(url):
     # Extract the link based on the provided structure
     link_element = soup.select_one('a[data-testid="UserUrl"]')
     
+    link = ""
     if link_element:
         link = link_element['href']
         print(f"URL: {link}")
